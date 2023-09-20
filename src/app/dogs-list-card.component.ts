@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterModule],
   template: `
     <article class="pet-card">
+    <img class="pet-img" src="{{dog.photoUrl}}" alt="Photo of {{dog.name}}">
       <p class="pet-headline">
         Meet <span class="pet-name">{{ dog.name }}</span>
       </p>
@@ -22,8 +23,7 @@ import { CommonModule } from '@angular/common';
       <p class="pet-learn-more"><a href="details/{{ index }}">Learn More</a></p>
     </article>
   `,
-  styles: [
-    `
+  styles: [`
       .pet-card {
         display: flex;
         flex-direction: column;
@@ -51,8 +51,7 @@ import { CommonModule } from '@angular/common';
       .pet-headline {
         font-size: 18pt;
       }
-    `,
-  ],
+    `],
 })
 export class DogsListCardComponent {
   @Input() dog!: Dog;
