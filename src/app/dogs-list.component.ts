@@ -11,7 +11,7 @@ import { DogsListCardComponent } from './dogs-list-card.component';
 <section class="hero-section">
   <h2 class="hero-text">Discover pets</h2>
   <article class="pet-list">
-    <app-dogs-list-card *ngFor="let dog of dogsService.dogs" [dog]="dog"></app-dogs-list-card>
+    <app-dogs-list-card *ngFor="let dog of dogsService.dogs; let i = index" [index] = "i" [dog]="dog"></app-dogs-list-card>
   </article>
 </section>
   `,

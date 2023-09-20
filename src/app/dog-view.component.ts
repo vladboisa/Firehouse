@@ -9,19 +9,45 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <p>
-      dog-view works!
-    </p>
+<article class="details-panel" *ngIf="(dog$ | async) as dog">
+      <img class="main-img" src="{{dog.photoUrl}}" alt="Photo of {{dog.name}}">
+      <article>
+        <h1 class="main-text">Hi, I'm {{dog.name}}</h1>
+        <h2>My owner's name is <span class="emphasize">{{dog.ownerName}}</span></h2>
+        <p>{{dog.longDescription}}</p>
+        <p>I live in <span class="emphasize">{{dog.location}}</span></p>
+      </article>
+    </article>
   `,
-  styles: [
+  styles: [`
+
+  .details-panel {
+    display: flex;
+    flex-wrap:wrap;
+    padding: 10px;
+    gap: 50px;
+  }
+  .main-img {
+    border-radius: 10px;
+    width: 300px;
+  }
+  .main-text {
+    font-size: 34pt;
+    margin-bottom: 20px;
+  }
+  .emphasize {
+    font-weight: bold;
+  }`
   ]
 })
 export class DogViewComponent {
 
-dog$: Observable<Dog | undefined>
+dog$!: Observable<Dog | undefined>
 constructor (private dogsService: DogsService, private route: ActivatedRoute) {
 }
 ngOnInit():void {
-  this.dog$ = this.route.paramMap.pipe(map())
+  this.dog$ = this.route.paramMap.pipe(map(params => {
+    return this.dogsService.dogs[Number(params.get('index'))];
+  }))
 }
 }
