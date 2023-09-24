@@ -1,10 +1,12 @@
 <main>
   <header><img src="assets/logo.svg" alt="Fairhouse logo"></header>
   <section>
-    <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)">
+    <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)"
+      (detailsHousingLocations)="updatedetailsHousingLocations($event)"
+      (searchResultsEvent)="updateSearchResultsLocations($event)">
     </app-housing-list>
     <article>
-      <ng-container *ngIf="selectedLocation">
+      <ng-container *ngIf="detailsHousingLocations && selectedLocation && searchResults?.length">
         <img [src]="selectedLocation.photo">
         <p>{{selectedLocation.name}}</p>
         <p>{{selectedLocation.availableUnits}}</p>
