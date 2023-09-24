@@ -14,7 +14,7 @@ input {
 }
 
 input[type="submit"],button {
-  width: 70px;
+  width: 90px;
   height: 42px;
   background-color: #4468e8;
   color: white;
