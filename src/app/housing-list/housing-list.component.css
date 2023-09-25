@@ -20,6 +20,7 @@ input[type="submit"],button {
   color: white;
   border: solid 1px #4468e8;
   border-radius: 0 2px 2px 0;
+  cursor: pointer;
 }
 
 article {
@@ -43,4 +44,9 @@ img {
 label {
   display: block;
   color: #888c9c;
+}
+
+.buttonDetailed {
+  background-color: #677db7;
+  border: solid 1px #4b5b85;
 }
