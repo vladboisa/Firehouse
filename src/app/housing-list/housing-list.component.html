@@ -11,8 +11,11 @@ selectResultsHousingLocations(results)">
     <button (click)="
     selectHousingLocations(location);
       viewDetailsHousingLocations(detailHouses);
-        detailHouses = !detailHouses;">
- <!-- !TODO Обновлять не каждый элемент -->     {{ !detailHouses ? 'Hide' : 'Show'}} View
+        detailHouses = !detailHouses;"
+    [ngClass]="{
+      'buttonDetailed': !detailHouses
+    }">
+ <!-- !REFACTOR: component dobavit' -->     {{ !detailHouses ? 'Hide' : 'Show'}} View
     </button>
   </article>
 </article>
