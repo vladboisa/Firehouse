@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HousingListComponent } from './housing-list/housing-list.component';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+];
 @NgModule({
   declarations: [
     AppComponent,
