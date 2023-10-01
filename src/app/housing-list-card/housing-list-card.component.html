@@ -1,1 +1,11 @@
-<p>housing-list-card works!</p>
+<article>
+  <p>{{searchedLocations.name}}</p>
+  <button (click)="
+  selectHousingLocation(searchedLocations);
+      detailHouses = !detailHouses;"
+  [ngClass]="{
+    'buttonDetailed': !detailHouses
+  }">
+<!-- !REFACTOR: component dobavit' -->     {{ !detailHouses ? 'Hide' : 'Show'}} View
+  </button>
+</article>
