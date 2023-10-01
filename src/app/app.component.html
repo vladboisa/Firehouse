@@ -2,8 +2,7 @@
   <main>
     <header><img src="assets/logo.svg" alt="Fairhouse logo"></header>
     <section>
-      <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)"
-        (detailsHousingLocations)="updatedetailsHousingLocations($event)"
+      <app-housing-list
         (searchResultsEvent)="updateSearchResultsLocations($event)">
       </app-housing-list>
       <article>

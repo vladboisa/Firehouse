@@ -5,18 +5,8 @@ selectResultsHousingLocations(results)">
   <input id="location-search" placeholder="Ex: Chicago" #search>
   <input type="submit" value="Search">
 </form>
-<article *ngIf="results.length!==0; else NotFound">
-  <article *ngFor="let location of results">
-    <p>{{location.name}}</p>
-    <button (click)="
-    selectHousingLocations(location);
-      viewDetailsHousingLocations(detailHouses);
-        detailHouses = !detailHouses;"
-    [ngClass]="{
-      'buttonDetailed': !detailHouses
-    }">
- <!-- !REFACTOR: component dobavit' -->     {{ !detailHouses ? 'Hide' : 'Show'}} View
-    </button>
-  </article>
+
+<article  *ngIf="results.length!==0; else NotFound">
+  <app-housing-list-card *ngFor="let locations of results" [searchedLocations]="locations"></app-housing-list-card>
 </article>
 <ng-template #NotFound>Not Found</ng-template>
