@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HousingListComponent } from './housing-list/housing-list.component';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HousingListCardComponent } from './housing-list-card/housing-list-card.component';
+import { HousingLocationsService } from './housing-locations.service';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
 ];
@@ -12,7 +13,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HousingListComponent,
-    HousingListCardComponent
+    HousingListCardComponent,
   ],
   imports: [
     BrowserModule,
