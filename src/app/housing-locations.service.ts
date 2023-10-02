@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HousingLocationsService {
   housingLocationList: HousingLocation[] = [
@@ -35,15 +35,16 @@ export class HousingLocationsService {
       laundry: false,
     },
   ];
- locationSelectedSource$ = new BehaviorSubject<HousingLocation[]>(this.housingLocationList);
- currentHousingLocation = this.locationSelectedSource$.asObservable();
- isDetailedLocation$ = new BehaviorSubject<boolean>(true);
- constructor() {
-  }
-  selectHousingLocations(location:HousingLocation[]) {
+  locationSelectedSource$ = new BehaviorSubject<HousingLocation[]>(
+    this.housingLocationList
+  );
+  currentHousingLocation = this.locationSelectedSource$.asObservable();
+  isDetailedLocation$ = new BehaviorSubject<boolean>(false);
+  constructor() {}
+  takeHousingLocation(location: HousingLocation[]) {
     this.locationSelectedSource$.next(location);
   }
-  viewDetailsHousingLocations(detailHouses: boolean){
-  this.isDetailedLocation$.next(detailHouses)
+  takeDetailsHousingLocation(detailHouses: boolean) {
+    this.isDetailedLocation$.next(detailHouses);
   }
 }

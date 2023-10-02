@@ -17,17 +17,11 @@ export class HousingListCardComponent implements OnInit {
     this.locationServices.currentHousingLocation.subscribe( location => this.selectedLocation = location);
     this.locationServices.isDetailedLocation$.subscribe(detailed => this.detailHouses = detailed)
   }
-
-
-/*   @Output() locationSelectedEvent = new EventEmitter<HousingLocation>();
-  @Output() detailsHousingLocations = new EventEmitter<Boolean>();
-  selectHousingLocations(location: HousingLocation) {
-    this.locationSelectedEvent.emit(location);
-  }
-  viewDetailsHousingLocations(detailHouses: Boolean) {
-    this.detailsHousingLocations.emit(detailHouses);
-  } */
   selectHousingLocation(location: HousingLocation){
-    this.locationServices.selectHousingLocations(location as any);
+    this.locationServices.takeHousingLocation(location as any);
+  }
+  selectDetailsHousingLocation(detail:boolean){
+    console.log("🚀 ~ file: housing-list-card.component.ts:24 ~ HousingListCardComponent ~ selectDetailsHousingLocation ~ detail:", detail)
+    this.locationServices.takeDetailsHousingLocation(detail);
   }
 }
