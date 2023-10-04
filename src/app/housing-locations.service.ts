@@ -39,7 +39,7 @@ export class HousingLocationsService {
     this.housingLocationList
   );
   currentHousingLocation = this.locationSelectedSource$.asObservable();
-  isDetailedLocation$ = new BehaviorSubject<boolean>(false);
+  isDetailedLocation$ = new BehaviorSubject<boolean>(true);
   constructor() {}
   takeHousingLocation(location: HousingLocation[]) {
     this.locationSelectedSource$.next(location);
