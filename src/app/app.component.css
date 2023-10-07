@@ -8,7 +8,7 @@ header {
 header {
     padding-left: 50px;
 }
-header > img {
+header > a >img {
     width: 28pt;
     height: 29pt
 }

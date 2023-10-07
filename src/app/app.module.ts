@@ -7,7 +7,8 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HousingListCardComponent } from './housing-list-card/housing-list-card.component';
 import { HousingLocationsService } from './housing-locations.service';
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '/', pathMatch: 'full'},
+  {path: 'app', component: AppComponent},
 ];
 @NgModule({
   declarations: [
