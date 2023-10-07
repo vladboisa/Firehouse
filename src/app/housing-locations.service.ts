@@ -35,16 +35,18 @@ export class HousingLocationsService {
       laundry: false,
     },
   ];
-  locationSelectedSource$ = new BehaviorSubject<HousingLocation[]>(
+  constructor() {}
+  locationSelectedSource = new BehaviorSubject<HousingLocation[]>(
     this.housingLocationList
   );
-  currentHousingLocation = this.locationSelectedSource$.asObservable();
-  isDetailedLocation$ = new BehaviorSubject<boolean>(true);
-  constructor() {}
+  currentHousingLocation$ = this.locationSelectedSource.asObservable();
   takeHousingLocation(location: HousingLocation[]) {
-    this.locationSelectedSource$.next(location);
+    this.locationSelectedSource.next(location);
   }
+
+  isDetailedLocation = new BehaviorSubject<boolean>(false);
+  currentDetailedLocation$ = this.isDetailedLocation.asObservable();
   takeDetailsHousingLocation(detailHouses: boolean) {
-    this.isDetailedLocation$.next(detailHouses);
+    this.isDetailedLocation.next(detailHouses);
   }
 }

@@ -9,19 +9,20 @@ import { HousingLocation } from '../housing-location';
   styleUrls: ['./housing-list-card.component.css']
 })
 export class HousingListCardComponent implements OnInit {
-  detailHouses!:boolean;
+  isDetailedHouses!:boolean;
+  showOrHide = 'Show';
   @Input() searchedLocations!:HousingLocation;
   selectedLocation! : HousingLocation[];
-  constructor(private locationServices: HousingLocationsService) { }
+  constructor(public locationServices: HousingLocationsService) { }
   ngOnInit(): void {
-    this.locationServices.currentHousingLocation.subscribe( location => this.selectedLocation = location);
-    this.locationServices.isDetailedLocation$.subscribe(detailed => this.detailHouses = detailed)
+    this.locationServices.currentHousingLocation$.subscribe( location => this.selectedLocation = location);
+    this.locationServices.currentDetailedLocation$.subscribe(detailed => this.isDetailedHouses = detailed)
   }
   selectHousingLocation(location: HousingLocation){
     this.locationServices.takeHousingLocation(location as any);
   }
-  selectDetailsHousingLocation(detail:boolean){
-    console.log("🚀 ~ file: housing-list-card.component.ts:24 ~ HousingListCardComponent ~ selectDetailsHousingLocation ~ detail:", detail)
-    this.locationServices.takeDetailsHousingLocation(detail);
+  selectDetailsHousingLocation(details:boolean){
+    this.isDetailedHouses ? this.showOrHide = 'Hide' : this.showOrHide = 'Show';
+    this.locationServices.takeDetailsHousingLocation(details);
   }
 }

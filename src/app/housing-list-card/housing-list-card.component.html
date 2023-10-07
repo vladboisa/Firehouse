@@ -2,11 +2,11 @@
   <p>{{searchedLocations.name}}</p>
   <button (click)="
   selectHousingLocation(searchedLocations);
-  selectDetailsHousingLocation(detailHouses);
-  detailHouses = !detailHouses;"
+  selectDetailsHousingLocation(isDetailedHouses = !isDetailedHouses);
+  "
   [ngClass]="{
-    'buttonDetailed': !detailHouses
+    'buttonDetailed': !isDetailedHouses
   }">
-  {{ detailHouses ? 'Hide' : 'Show'}} View
+  {{ showOrHide }} View
   </button>
 </article>
