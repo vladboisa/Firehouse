@@ -2,6 +2,7 @@ import { HousingLocationsService } from './housing-locations.service';
 import { HousingListCardComponent } from './housing-list-card/housing-list-card.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HousingLocation } from './housing-location';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

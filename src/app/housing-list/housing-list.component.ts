@@ -1,7 +1,6 @@
 import { HousingLocationsService } from './../housing-locations.service';
 import { HousingLocation } from './../housing-location';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
 @Component({
   selector: 'app-housing-list',
   templateUrl: './housing-list.component.html',
