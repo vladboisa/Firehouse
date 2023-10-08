@@ -1,17 +1,20 @@
-<main>
-  <header><img src="../assets/logo.svg">Fairhouse</header>
-  <section>
-    <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)">
-    </app-housing-list>
-    <article>
-      <ng-container *ngIf="selectedLocation">
-        <img [src]="selectedLocation?.photo">
-        <p>{{selectedLocation?.name}}</p>
-        <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
-        <p>Available Units: {{selectedLocation?.availableUnits}}</p>
-        <p>{{selectedLocation?.laundry ? "Has laundry" : "Does Not have laundry"}}</p>
-        <p>{{selectedLocation?.wifi ? "Has wifi" : "Does Not have wifi"}}</p>
-      </ng-container>
-    </article>
-  </section>
-</main>
+<router-outlet>
+  <main>
+    <header><a routerLink="/"><img src="assets/logo.svg" alt="Fairhouse logo"></a></header>
+    <section>
+      <app-housing-list
+        (searchResultsEvent)="updateSearchResultsLocations($event)">
+      </app-housing-list>
+      <article>
+        <ng-container *ngIf="detailsHousingLocations && selectedLocation && searchResults?.length">
+          <img [src]="selectedLocation.photo">
+          <p>{{selectedLocation.name}}</p>
+          <p>{{selectedLocation.availableUnits}}</p>
+          <p>{{selectedLocation.city}}, {{selectedLocation.state}}</p>
+          <p>{{selectedLocation.laundry ? "Has laundry" : "Does Not have laundry"}}</p>
+          <p>{{selectedLocation.wifi ? "Has wifi" : "Does Not have wifi"}}</p>
+        </ng-container>
+      </article>
+    </section>
+    </main>
+  </router-outlet>

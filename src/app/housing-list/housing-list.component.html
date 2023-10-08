@@ -1,9 +1,12 @@
-<label for="location-search">Search for a new place</label>
-<input id="location-search" #search placeholder="Ex: Chicago"><button
-    (click)="searchHousingLocations(search.value)">Search</button>
-<article *ngFor="let location of results">
-    <img [src]="location.photo" [alt]="location.name">
-    <p>{{location.name}}</p>
-    <p>{{location.city}}, {{location.state}}</p>
-    <button (click)="selectHousingLocation(location)">View</button>
+<form (ngSubmit)="
+searchHousingLocations(search.value);
+selectResultsHousingLocations(results)">
+  <label for="location-search">Search for a new place</label>
+  <input id="location-search" placeholder="Ex: Chicago" #search>
+  <input type="submit" value="Search">
+</form>
+
+<article  *ngIf="results.length!==0; else NotFound">
+  <app-housing-list-card *ngFor="let locations of results" [searchedLocations]="locations"></app-housing-list-card>
 </article>
+<ng-template #NotFound>Not Found</ng-template>

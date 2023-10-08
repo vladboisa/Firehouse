@@ -1,0 +1,15 @@
+<article>
+  <p>{{searchedLocations.name}}</p>
+  <img [src]="searchedLocations.photo" [alt]="searchedLocations.name">
+    <p>{{searchedLocations.name}}</p>
+    <p>{{searchedLocations.city}}, {{searchedLocations.state}}</p>
+  <button (click)="
+  selectHousingLocation(searchedLocations);
+  selectDetailsHousingLocation(isDetailedHouses = !isDetailedHouses);
+  "
+  [ngClass]="{
+    'buttonDetailed': !isDetailedHouses
+  }">
+  {{ showOrHide }} View
+  </button>
+</article>
