@@ -9,6 +9,7 @@ import { HousingLocation } from '../housing-location';
   styleUrls: ['./housing-list-card.component.css']
 })
 export class HousingListCardComponent implements OnInit {
+  btnStyleDetailed !: boolean;
   isDetailedHouses!:boolean;
   showOrHide = 'Show';
   @Input() searchedLocations!:HousingLocation;

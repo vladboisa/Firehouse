@@ -1,14 +1,14 @@
 <article>
   <p>{{searchedLocations.name}}</p>
-  <img [src]="searchedLocations.photo" [alt]="searchedLocations.name">
-    <p>{{searchedLocations.name}}</p>
+  <img [src]="searchedLocations.photo" [alt]="searchedLocations.name" width="440px">
     <p>{{searchedLocations.city}}, {{searchedLocations.state}}</p>
   <button (click)="
   selectHousingLocation(searchedLocations);
   selectDetailsHousingLocation(isDetailedHouses = !isDetailedHouses);
+  btnStyleDetailed = !btnStyleDetailed;
   "
   [ngClass]="{
-    'buttonDetailed': !isDetailedHouses
+    'buttonDetailed': btnStyleDetailed
   }">
   {{ showOrHide }} View
   </button>
