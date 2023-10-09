@@ -27,26 +27,8 @@ article {
   margin: 40px 0 10px 0;
   color: #202845;
 }
-article, article > p {
-  color: #202845;
-}
-
-article> p:first-of-type {
-  font-weight: bold;
-  font-size: 22pt;
-}
-
-img {
-  width: 490px;
-  border-radius: 5pt;
-}
 
 label {
   display: block;
   color: #888c9c;
-}
-
-.buttonDetailed {
-  background-color: #677db7;
-  border: solid 1px #4b5b85;
 }
