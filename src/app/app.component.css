@@ -12,6 +12,9 @@ header > a >img {
     width: 28pt;
     height: 29pt
 }
+header > a {
+    padding-right: 10px;
+}
 section {
     margin-inline: 50px;
 }

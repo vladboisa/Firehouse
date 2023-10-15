@@ -1,6 +1,9 @@
 <router-outlet>
   <main>
-    <header><a routerLink="/"><img src="assets/logo.svg" alt="Fairhouse logo"></a></header>
+    <header>
+      <a routerLink="/"><img src="assets/logo.svg" alt="Fairhouse logo"></a>
+      <a routerLink="/list">List</a>
+    </header>
     <section>
       <app-housing-list
         (searchResultsEvent)="updateSearchResultsLocations($event)">
