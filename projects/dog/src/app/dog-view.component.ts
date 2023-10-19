@@ -23,13 +23,14 @@ import { ActivatedRoute } from '@angular/router';
 
   .details-panel {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     padding: 10px;
     gap: 50px;
   }
   .main-img {
     border-radius: 10px;
     width: 300px;
+    height: max-content;
   }
   .main-text {
     font-size: 34pt;

@@ -11,7 +11,11 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterModule],
   template: `
     <article class="pet-card">
-    <img class="pet-img" src="{{dog.photoUrl}}" alt="Photo of {{dog.name}}">
+      <img
+        class="pet-img"
+        src="{{ dog.photoUrl }}"
+        alt="Photo of {{ dog.name }}"
+      />
       <p class="pet-headline">
         Meet <span class="pet-name">{{ dog.name }}</span>
       </p>
@@ -23,19 +27,23 @@ import { CommonModule } from '@angular/common';
       <p class="pet-learn-more"><a href="details/{{ index }}">Learn More</a></p>
     </article>
   `,
-  styles: [`
+  styles: [
+    `
       .pet-card {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px,
+          rgb(0 0 0 / 6%) 0px 0px 0px 1px;
         width: 300px;
+        height: 100%;
       }
 
       .pet-img {
         border-radius: 10px 10px 0 0;
-        width: 300px;
+        aspect-ratio: 1;
+        object-fit: fill;
       }
 
       .pet-name {
@@ -51,7 +59,8 @@ import { CommonModule } from '@angular/common';
       .pet-headline {
         font-size: 18pt;
       }
-    `],
+    `,
+  ],
 })
 export class DogsListCardComponent {
   @Input() dog!: Dog;
