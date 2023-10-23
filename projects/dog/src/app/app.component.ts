@@ -1,16 +1,16 @@
+import { DogsListComponent } from './dogs-list.component';
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   template: `
-    <router-outlet>
-      <nav>
-        <div>
-          <img class="logo" src="assets/dog-walker-logo.svg" [routerLink]="['/list']">
-          <h1 class="title">Walk My Dog</h1>
-        </div>
-      </nav>
-    </router-outlet>
+            <nav>
+              <div>
+                <img class="logo" src="assets/dog-walker-logo.svg">
+                <a href="/list">List</a>
+              </div>
+            </nav>
   `,
   styles: [`
       nav {
@@ -36,6 +36,6 @@ import { Component } from '@angular/core';
       }
     `],
 })
-export class AppComponent {
+export class AppDogComponent {
   title = 'walk-my-dog';
 }
