@@ -16,11 +16,10 @@ header > a {
     padding-right: 10px;
 }
 section {
-    margin-inline: 50px;
+    margin-inline: 30px;
 }
 section {
     display: flex;
-    justify-content: space-between;
 }
 
 article {
