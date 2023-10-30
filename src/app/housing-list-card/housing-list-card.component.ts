@@ -13,14 +13,14 @@ export class HousingListCardComponent implements OnInit {
   isDetailedHouses!:boolean;
   showOrHide = 'Show';
   @Input() searchedLocations!:HousingLocation;
-  selectedLocation! : HousingLocation[];
+  selectedLocation! : HousingLocation;
   constructor(public locationServices: HousingLocationsService) { }
   ngOnInit(): void {
-    this.locationServices.currentHousingLocation$.subscribe( location => this.selectedLocation = location);
-    this.locationServices.currentDetailedLocation$.subscribe(detailed => this.isDetailedHouses = detailed)
+    this.locationServices.currentDetailedLocation$.subscribe(detailed => this.isDetailedHouses = detailed);
+    this.locationServices.singleLocationSelectedSource.subscribe(el => this.selectedLocation = el);
   }
   selectHousingLocation(location: HousingLocation){
-    this.locationServices.takeHousingLocation(location as any);
+    this.locationServices.takeSingleHousingLocation(location)
   }
   selectDetailsHousingLocation(details:boolean){
     this.isDetailedHouses ? this.showOrHide = 'Hide' : this.showOrHide = 'Show';

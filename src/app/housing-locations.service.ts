@@ -39,8 +39,8 @@ export class HousingLocationsService {
   locationSelectedSource = new BehaviorSubject<HousingLocation[]>(
     this.housingLocationList
   );
-  currentHousingLocation$ = this.locationSelectedSource.asObservable();
-  takeHousingLocation(location: HousingLocation[]) {
+  currentHousingLocations$ = this.locationSelectedSource.asObservable();
+  takeHousingLocations(location: HousingLocation[]) {
     this.locationSelectedSource.next(location);
   }
 
@@ -48,5 +48,10 @@ export class HousingLocationsService {
   currentDetailedLocation$ = this.isDetailedLocation.asObservable();
   takeDetailsHousingLocation(detailHouses: boolean) {
     this.isDetailedLocation.next(detailHouses);
+  }
+
+  singleLocationSelectedSource = new BehaviorSubject<HousingLocation>(this.housingLocationList[0])
+  takeSingleHousingLocation(loc:HousingLocation){
+    this.singleLocationSelectedSource.next(loc)
   }
 }
