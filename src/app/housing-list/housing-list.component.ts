@@ -17,9 +17,7 @@ export class HousingListComponent implements OnInit {
       location.city.toLowerCase().includes(searchText.toLowerCase())
     );
   }
-  @Output() searchResultsEvent = new EventEmitter<HousingLocation[]>();
-
   selectResultsHousingLocations(results: HousingLocation[]) {
-    this.searchResultsEvent.emit(results);
+    this.housingLocationsService.takeHousingLocations(results)
   }
 }
